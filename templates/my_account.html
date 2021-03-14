@@ -1,0 +1,17 @@
+{% extends 'main.html' %}
+
+{% block title %}
+My account
+{% endblock %}
+
+{% block breadcrumb %}
+  <li class="breadcrumb-item active">My account</li>
+{% endblock %}
+
+{% block content %}
+  <form method="post" novalidate>
+    {% csrf_token %}
+    {% include 'include/form.html' %}
+    <button type="submit" class="btn btn-success">Save Changes</button>
+  </form>
+{% endblock %}
