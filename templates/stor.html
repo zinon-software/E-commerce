@@ -7,17 +7,19 @@
 
   <div class="row">
       {% for item in product %}
-		<div class="col-lg-4">
+		<div class="col-lg-3">
 			<img class="thumbnail" src="{{item.imageURL}}">
+            <small><h6 align="center"><strong>${{ item.price|floatformat:2 }}</strong></h6></small>
 			<div class="box-element product">
-				<h6><strong>{{ item.name }}</strong></h6>
+				<h6 style="float: right"><strong>{{ item.name }}</strong></h6>
 				<hr>
 
 				<button data-product="{{ item.id }}" data-action="add" class="btn btn-outline-secondary add-btn update-cart">Add to Cart</button>
-				<a class="btn btn-outline-success" href="#">View</a>
-				<h4 style="display: inline-block; float: right"><strong>${{ item.price|floatformat:2 }}</strong></h4>
+				<a class="btn btn-outline-success" style="float: contour" href="#">View</a>
+
 
 			</div>
+        <br>
         </div>
       {% endfor %}
   </div>
