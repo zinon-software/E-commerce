@@ -36,8 +36,8 @@
           <table class="table" >
               <thead style="background-color: #e3f2fd;">
                 <tr>
-                  <th scope="col">Name</th>
-                  <th scope="col">email</th>
+                  <th scope="col">Name customer</th>
+                  <th scope="col"> order</th>
                   <th scope="col">Show</th>
                 </tr>
               </thead>
@@ -45,9 +45,9 @@
 
               {% for  item in customer %}
                 <tr>
-                  <td>{{  item.name }}</td>
-                  <td>{{  item.email }}</td>
-                  <td><a href="#"><i class="fas fa-eye"></i></a></td>
+                  <td>{{  item.customer }}</td>
+                  <td>{{  item.order }}</td>
+                  <td><a href="{% url 'customer' item.order %}"><i class="fas fa-eye"></i></a></td>
                 </tr>
 
               {% endfor %}
@@ -56,43 +56,6 @@
       </div>
     </div>
   </div>
-
-  <div class="col">
-    <div class="card">
-      <div class="card-body">
-        <h5 class="card-title">Order</h5>
-{#        <button type="button" class="btn btn-outline-success"><a href="{% url 'create' %}">Create</a></button>#}
-          <table class="table" >
-              <thead style="background-color: #e3f2fd;">
-                <tr>
-                  <th scope="col">customer</th>
-                  <th scope="col">date_ordered</th>
-                  <th scope="col">complete</th>
-                  <th scope="col">transaction_id</th>
-                    <th scope="col">Action</th>
-                </tr>
-              </thead>
-              <tbody>
-
-              {% for item in orderTime %}
-                <tr>
-                  <th scope="col">{{ item.customer }}</th>
-                  <td>{{ item.date_ordered }}</td>
-                  <td>{{ item.complete }}</td>
-                  <td>{{ item.transaction_id}}</td>
-                  <td>
-                      <a href="#"><i class="fas fa-edit"></i></a>
-                      <a class="text-danger" href="#"><i class="fas fa-trash-alt"></i></a>
-                  </td>
-                </tr>
-
-              {% endfor %}
-              </tbody>
-          </table>
-      </div>
-    </div>
-  </div>
-</div>
 </div>
 
 {% endblock %}
