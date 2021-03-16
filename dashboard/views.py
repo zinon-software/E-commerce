@@ -9,8 +9,11 @@ def dashboard(request):
 
     shippingOrder = ShippingAddress.objects.all()
 
+    countShippingOrder = shippingOrder.count()
+
     context = {
         'customer':shippingOrder,
+        'countShippingOrder': countShippingOrder,
     }
 
     return render(request, 'dashboard/dashboard.html', context)

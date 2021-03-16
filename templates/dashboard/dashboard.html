@@ -8,8 +8,8 @@
 <div class="container pb-5 ">
   <div class="row" align="center">
 
-    <div class="col-sm rounded-pill bg-info">
-       <h4>Total Order : <span class="badge bg-primary rounded-pill">{{ customerCount }}</span></h4>
+    <div class="col-sm">
+       <h4>Total Order : <span class="badge bg-primary rounded-pill">{{ countShippingOrder }}</span></h4>
     </div>
     <div class="col-sm rounded-pill bg-danger">
       <h4>Pending : <span class="badge bg-primary rounded-pill">{{ p_orders }}</span></h4>
@@ -37,7 +37,8 @@
               <thead style="background-color: #e3f2fd;">
                 <tr>
                   <th scope="col">Name customer</th>
-                  <th scope="col"> order</th>
+                  <th scope="col"> order number</th>
+                  <th scope="col">Created date</th>
                   <th scope="col">Show</th>
                 </tr>
               </thead>
@@ -47,6 +48,7 @@
                 <tr>
                   <td>{{  item.customer }}</td>
                   <td>{{  item.order }}</td>
+                  <td>{{  item.date_added }}</td>
                   <td><a href="{% url 'customer' item.order %}"><i class="fas fa-eye"></i></a></td>
                 </tr>
 
@@ -57,5 +59,5 @@
     </div>
   </div>
 </div>
-
+ </div>
 {% endblock %}

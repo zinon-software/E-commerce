@@ -20,7 +20,7 @@ def store(request):
         'cartItems': cartItems
     }
 
-    return render(request, 'stor.html', context)
+    return render(request, 'store/stor.html', context)
 
 
 def cart(request):
@@ -34,7 +34,7 @@ def cart(request):
         'order': order,
         'cartItems': cartItems,
     }
-    return render(request, 'cart.html', context)
+    return render(request, 'store/cart.html', context)
 
 
 def checkout(request):
@@ -48,7 +48,7 @@ def checkout(request):
             'order': order,
             'cartItems': cartItems
         }
-    return render(request, 'checkout.html', context)
+    return render(request, 'store/checkout.html', context)
 
 
 def updateItem(request):

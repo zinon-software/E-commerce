@@ -26,14 +26,14 @@ def signup(request):
             return redirect('store')
     else:
         form = SignUpForm()
-    return render(request, 'signup.html', {'form': form})
+    return render(request, 'accounts/signup.html', {'form': form})
 
 
 # GCBV
 class UserUpdateView(UpdateView):
     model = User
     fields = ('first_name', 'last_name', 'email',)
-    template_name = 'my_account.html'
+    template_name = 'accounts/my_account.html'
     success_url = reverse_lazy('my_account')
 
     def get_object(self):
