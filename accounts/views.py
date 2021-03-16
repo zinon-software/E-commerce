@@ -6,12 +6,23 @@ from django.urls import reverse_lazy
 
 from .forms import SignUpForm
 
+from blog.models import Customer
+
+
+
 def signup(request):
     if request.method == 'POST':
         form = SignUpForm(request.POST)
         if form.is_valid():
             user = form.save()
             auth_login(request, user)
+
+            Customer.objects.create(
+                user=request.user,
+                name=form.cleaned_data.get('username'),
+                email=form.cleaned_data.get('email'),
+            )
+
             return redirect('store')
     else:
         form = SignUpForm()
