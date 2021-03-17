@@ -1,9 +1,12 @@
 from django.urls import path
 
 from blog import views
+from blog.views import *
 
 urlpatterns = [
-    path('', views.store, name='store'),
+    # path('', views.store, name='store'),
+    path('', Store.as_view(), name='store'),
+
     path('cart/', views.cart, name='cart'),
     path('checkout/', views.checkout, name='checkout'),
 

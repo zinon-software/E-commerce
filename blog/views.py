@@ -1,4 +1,7 @@
 from django.shortcuts import render
+from django.utils import timezone
+from django.views.generic import ListView
+
 from blog.models import *
 from .utils import cookieCart, cartData, guestOrder
 
@@ -9,18 +12,28 @@ import datetime
 # Create your views here.
 
 
-def store(request):
-    data = cartData(request)
-    cartItems = data['cartItems']
+# def store(request):
+#     data = cartData(request)
+#     cartItems = data['cartItems']
+#
+#
+#     product = Product.objects.all()
+#     context = {
+#         'product': product,
+#         'cartItems': cartItems
+#     }
+#
+#     return render(request, 'store/stor.html', context)
+class Store(ListView):
+    model = Product
+    template_name = 'store/stor.html'
 
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        data = cartData(self.request)
+        context['cartItems'] = data['cartItems']
+        return context
 
-    product = Product.objects.all()
-    context = {
-        'product': product,
-        'cartItems': cartItems
-    }
-
-    return render(request, 'store/stor.html', context)
 
 
 def cart(request):

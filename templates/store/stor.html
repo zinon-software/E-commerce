@@ -7,7 +7,7 @@
 {#    {% include 'include/slideshow.html' %}#}
 
   <div class="row">
-      {% for item in product %}
+      {% for item in object_list %}
 		<div class="col-lg-3">
 			<img class="thumbnail" src="{{item.imageURL}}">
             <small><h6 align="center"><strong>${{ item.price|floatformat:2 }}</strong></h6></small>
